@@ -9,7 +9,7 @@ string currentPlayer = "x";
 
 bool isnumeric(string& s) {
   string::const_iterator it = s.begin();
-  while (it != s.end() && std::isdigit(*it)) ++it;
+  while (it != s.end() && isdigit(*it)) ++it;
   return !s.empty() && it == s.end();
 
 }
