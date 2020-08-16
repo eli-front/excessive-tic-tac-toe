@@ -26,12 +26,7 @@ void printBoard() {
 }
 
 bool equalArray(string a[]) {
-  for (int i = 0; i < 3; i++) {
-    if (a[i] != a[0]) {
-      return false;
-    }
-  }
-  return true;
+  return (a[0] == a[1] && a[1] == a[2]);
 }
 
 string gameOver() {
@@ -42,7 +37,7 @@ string gameOver() {
     }
     //vertical
     string vertBoard[3];
-    for (int j = 0; j < 3; j++) vertBoard[i] = board[j][i];
+    for (int j = 0; j < 3; j++) vertBoard[j] = board[j][i];
 
     if ((equalArray(vertBoard)) && (vertBoard[0] != " ")) {
       return vertBoard[0];
@@ -110,7 +105,7 @@ int main() {
         cout << "at least one of the inputs were not integers" << endl;
       }
     } else {
-      cout << "your input was either too long or short, make sure it has correct formatting\n ex ->1 2" << endl;
+      cout << "your input was either too long or short, make sure it has correct formatting\n ex ->1" << endl;
     }
   }
   string winner = gameOver();

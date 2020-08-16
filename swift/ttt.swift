@@ -2,11 +2,11 @@
 //if permission denied run the following in Terminal:
 //chmod +x ttt.swift
 
-var board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+private var board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
-var currentPlayer = "x"
+private var currentPlayer = "x"
 
-func printBoard() {
+private func printBoard() {
     //clear terminal
     print("\u{001B}[2J")
     for i in 0...2 {
@@ -17,7 +17,7 @@ func printBoard() {
     }
 }
 
-func gameOver() -> String {
+private func gameOver() -> String {
     for i in 0...2 {
         //horizontal
         if board[i][0...1] == board[i][1...2] {
@@ -26,7 +26,7 @@ func gameOver() -> String {
         //vertical
         var vertBoard = [String]()
         for j in 0...2 {
-            vertBoard.append(board[i][j])
+            vertBoard.append(board[j][i])
         }
         if vertBoard[0...1] == vertBoard[1...2] {
             return board[i][0]
@@ -40,7 +40,7 @@ func gameOver() -> String {
     return " "
 }
 
-func boardFull() -> Bool {
+private func boardFull() -> Bool {
     for i in board {
         for j in i {
             if j == " " {
@@ -75,11 +75,11 @@ while gameOver() == " " {
             print("the inputs must follow these constraints: 0 <= input < 3")
         }
     } else {
-        print("your inputs were not integers or were not formatted correctly \n ex ->1 2")
+        print("your inputs were not integers or were not formatted correctly \n ex ->1")
     }
 }
 
-let winner = gameOver()
+private let winner = gameOver()
 
 if winner != " " {
     print("\(winner) wins!")
