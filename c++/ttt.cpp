@@ -17,9 +17,13 @@ void printBoard(string board[3][3]) {
   }
 }
 
+bool gameOver() {
+  //return if the game is over
+  return false;
+}
+
 int main() {
   string board[3][3] = {{" ", " ", " "},{" ", " ", " "},{" ", " ", " "}};
-
   printBoard(board);
 
   return 0;
