@@ -14,10 +14,6 @@ bool isnumeric(string& s) {
 
 }
 
-void clear() {
-  //clear terminal
-}
-
 void printBoard() {
   cout << "\x1B[2J\x1B[H";
   for (int i = 0; i < 3; i++) {
@@ -79,7 +75,7 @@ int main() {
 
   while (gameOver() == " ") {
     if (boardFull()) {
-      cout << "Cats Game" << endl;
+      cout << "cat's Game" << endl;
       break;
     }
 
@@ -114,7 +110,7 @@ int main() {
         cout << "at least one of the inputs were not integers" << endl;
       }
     } else {
-      cout << "the length of your input should be 1 (try again)" << endl;
+      cout << "your input was either too long or short, make sure it has correct formatting\n ex ->1 2" << endl;
     }
   }
   string winner = gameOver();

@@ -1,7 +1,10 @@
 from os import system, name
 
-def clear():
+board = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
 
+currentPlayer = 'x'
+
+def printBoard():
     # for windows
     if name == 'nt':
         _ = system('cls')
@@ -9,13 +12,6 @@ def clear():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
-
-board = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
-
-currentPlayer = 'x'
-
-def printBoard():
-    clear()
     for i in range(3):
         print(' {} | {} | {}'.format(board[i][0],board[i][1],board[i][2]))
         if i != 2:
@@ -55,7 +51,7 @@ printBoard()
 while gameOver() == None:
 
     if boardFull():
-        print('Cats Game')
+        print("cat's Game")
         break
 
     move = input('type x & y of your move (x y): ')
