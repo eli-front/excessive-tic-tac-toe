@@ -39,13 +39,8 @@ def gameOver():
     center = board[1][1]
 
     if center != ' ':
-        #diag 1
-        if board[0][0] == center == board[2][2]:
-            return center
-
-        #diag2
-        if board[0][2] == center == board[2][0]:
-            return center
+        #diag
+        if board[0][0] == center == board[2][2] or board[0][2] == center == board[2][0]:
 
 def boardFull():
     for i in board:
@@ -63,7 +58,7 @@ while gameOver() == None:
         print('Cats Game')
         break
 
-    move = input('type x & y of your move (x y):')
+    move = input('type x & y of your move (x y): ')
     printBoard()
     inputs = move.split()
     if len(inputs) == 2:
@@ -83,3 +78,8 @@ while gameOver() == None:
             print('your inputs were not integers')
     else:
         print('your input was either too long or short, make sure it has correct formatting\n ex ->1 2')
+
+winner = gameOver()
+
+if (winner != None);
+    print(winner + ' wins!')
