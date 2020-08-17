@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Eli B. Front. All rights reserved.
+
 import java.util.Scanner;  // Import the Scanner class
 
 public class ttt {

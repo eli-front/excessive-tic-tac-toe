@@ -1,10 +1,12 @@
+// Copyright (c) 2020 Eli B. Front. All rights reserved.
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
 
 using namespace std;
 
-string board[3][3] = {{" ", " ", " "},{" ", " ", " "},{" ", " ", " "}};
+string board[3][3] = {{" ", " ", " "}, {" ", " ", " "}, {" ", " ", " "}};
 string currentPlayer = "x";
 
 bool isnumeric(string& s) {
@@ -31,11 +33,11 @@ bool equalArray(string a[]) {
 
 string gameOver() {
   for (int i = 0; i < 3; i++) {
-    //horizontal
+    // horizontal
     if ((equalArray(board[i])) && (board[i][0] != " ")) {
       return board[i][0];
     }
-    //vertical
+    // vertical
     string vertBoard[3];
     for (int j = 0; j < 3; j++) vertBoard[j] = board[j][i];
 
@@ -47,7 +49,7 @@ string gameOver() {
   string center = board[1][1];
 
   if (center != " ") {
-    //diag
+    // diag
     if ((board[0][0] == center && center == board[2][2]) || (board[0][2] == center && center == board[2][0])) {
       return center;
     }

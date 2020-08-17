@@ -1,3 +1,5 @@
+# Copyright (c) 2020 Eli B. Front. All rights reserved.
+
 from os import system, name
 
 board = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]

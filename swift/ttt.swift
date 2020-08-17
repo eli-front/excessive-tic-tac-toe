@@ -1,3 +1,6 @@
+// Copyright (c) 2020 Eli B. Front. All rights reserved.
+
+
 #!/usr/bin/swift
 //if permission denied run the following in Terminal:
 //chmod +x ttt.swift
