@@ -58,6 +58,7 @@ std::string gameOver(std::string board[3][3]) {
   return " ";
 }
 
+// Checks if the board is full
 bool boardFull(std::string board[3][3]) {
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
@@ -93,7 +94,7 @@ int main() {
     printBoard(board);
     // Checks the size of the inputs (should be 1)
     if (x.size() == 1 && y.size() == 1) {
-      // Check if the inputs are numbers
+      // Checks if the inputs are numbers
       if (isnumeric(x) && isnumeric(y)) {
         // Converts the inputs to numbers
         int xNum = atoi(x.c_str());

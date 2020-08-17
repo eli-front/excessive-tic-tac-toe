@@ -4,6 +4,7 @@ import java.util.Scanner;  // Import the Scanner class
 
 public class ttt {
 
+  // Prints the current board and clears the previous board
   private static void printBoard(String[][] board) {
     System.out.print("\033[H\033[2J");
     System.out.flush();
@@ -15,17 +16,19 @@ public class ttt {
     }
   }
 
+  // Checks if all elements in an array are equal
   private static boolean equalArray(String[] a) {
     return (a[0] == a[1] && a[1] == a[2]);
   }
 
+  // If there is a winner it will return that player
   private static String gameOver(String[][] board) {
     for (int i = 0; i < 3; i++) {
-      //horizontal
+      // horizontal
       if (equalArray(board[i]) && board[i][0] != " ") {
         return board[i][0];
       }
-      //vertical
+      // vertical
       String[] vertBoard = new String[3];
       for (int j = 0; j < 3; j++) vertBoard[j] = board[j][i];
 
@@ -33,14 +36,16 @@ public class ttt {
         return vertBoard[0];
       }
     }
-    //diag
+    // diagonal
     String center = board[1][1];
     if ((board[0][0] == center && center == board[2][2]) || (board[0][2] == center && center == board[2][0])) {
       return center;
     }
+    // The game is not over
     return " ";
   }
 
+  // Checks if the board is full
   private static boolean boardFull(String[][] board) {
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -67,8 +72,11 @@ public class ttt {
       System.out.print("type y of your move: ");
       int y = s.nextInt();
 
+      // Checks if the inputs fall in the correct range
       if ((x >= 0 && x < 3) && (y >= 0 && y < 3)) {
+        // Checks if the input spot is empty
         if (board[y][x] == " ") {
+          // Sets the board spot to the currentPlayer
           board[y][x] = currentPlayer;
           currentPlayer = (currentPlayer == "x") ? "o" : "x";
           printBoard(board);
@@ -79,7 +87,10 @@ public class ttt {
         System.out.println("the inputs must follow these constraints: 0 <= input < 3");
       }
     }
+
+    // Winner of the game
     String winner = gameOver(board);
+    // Checks if it was a cat's game
     if (winner != " ") System.out.println(winner + " wins!");
   }
 }

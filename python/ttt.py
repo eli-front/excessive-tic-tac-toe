@@ -6,6 +6,7 @@ board = [[' ', ' ', ' '],[' ', ' ', ' '],[' ', ' ', ' ']]
 
 currentPlayer = 'x'
 
+# Prints the current board and clears the previous board
 def printBoard():
     # for windows
     if name == 'nt':
@@ -19,17 +20,19 @@ def printBoard():
         if i != 2:
             print('___ ___ ___ ')
 
+# Checks if all elements in an array are equal
 def equalArray(a):
     return a[1:] == a[:-1]
 
+# If there is a winner it will return that player
 def gameOver():
     for i in range(3):
 
-        #horizontal
+        # horizontal
         if equalArray(board[i]) and board[i][0] != ' ':
             return board[i][0]
 
-        #vertical
+        # vertical
         vertBoard = [j[i] for j in board]
 
         if equalArray(vertBoard) and vertBoard[0] != ' ':
@@ -38,10 +41,11 @@ def gameOver():
     center = board[1][1]
 
     if center != ' ':
-        #diag
+        # diagonal
         if board[0][0] == center == board[2][2] or board[0][2] == center == board[2][0]:
             return center
 
+# Checks if the board is full
 def boardFull():
     for i in board:
         for j in i:
@@ -61,12 +65,18 @@ while gameOver() == None:
     x = input('type x of your move: ')
     y = input('type y of your move: ')
     printBoard()
+    # Checks the size of the inputs (should be 1)
     if len(x) == 1 and len(y) == 1:
+        # Checks if the inputs are numbers
         if x.isnumeric() and y.isnumeric():
+            # Converts the inputs to numbers
             x = int(x)
             y = int(y)
+            # Checks if the inputs fall in the correct range
             if (x >= 0 and x < 3) and (y >= 0 and y < 3):
+                # Checks if the input spot is empty
                 if board[y][x] == ' ':
+                    # Sets the board spot to the currentPlayer
                     board[y][x] = currentPlayer
                     currentPlayer = 'x' if currentPlayer == 'o' else 'o'
                     printBoard()
@@ -81,5 +91,6 @@ while gameOver() == None:
 
 winner = gameOver()
 
+# Outputs an output if it exists
 if (winner != None):
     print(winner + ' wins!')

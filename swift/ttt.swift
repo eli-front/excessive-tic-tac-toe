@@ -2,15 +2,15 @@
 
 
 #!/usr/bin/swift
-//if permission denied run the following in Terminal:
-//chmod +x ttt.swift
+// If permission denied run the following in Terminal:
+// chmod +x ttt.swift
 
 private var board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 private var currentPlayer = "x"
 
 private func printBoard() {
-    //clear terminal
+    // Clear terminal
     print("\u{001B}[2J")
     for i in 0...2 {
         print(" \(board[i][0]) | \(board[i][1]) | \(board[i][2])")
@@ -22,11 +22,11 @@ private func printBoard() {
 
 private func gameOver() -> String {
     for i in 0...2 {
-        //horizontal
+        // horizontal
         if board[i][0...1] == board[i][1...2] {
             return board[i][0]
         }
-        //vertical
+        // vertical
         var vertBoard = [String]()
         for j in 0...2 {
             vertBoard.append(board[j][i])
@@ -36,7 +36,7 @@ private func gameOver() -> String {
         }
     }
     let center = board[1][1]
-    //diag
+    // diagonal
     if (board[0][0] == center && center == board[2][2]) || (board[0][2] == center && center == board[2][0]) {
         return center
     }
